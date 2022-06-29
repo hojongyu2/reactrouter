@@ -6,17 +6,17 @@ const BlogPost = () => {
     let params = useParams();
     console.log(params)
     //params are URL that goes after ':' in this case
-    const blogPost = blogPosts.find((blog)=> {
+    const foundBlog = blogPosts.find((blog)=> {
         return blog.id === parseInt(params.blogId)
         // s
     })
     return(
         <ul>
-            <p>createdAt: {blogPost.createdAt}</p>
-            <p>title: {blogPost.title}</p>
-            <p>text: {blogPost.text}</p>
-            <p>autho: {blogPost.author}</p>
-            <p>id: {blogPost.id}</p>
+            <p>Id: {foundBlog.id}</p>
+            <p>Title: {foundBlog.title}</p>
+            <p>Text: {foundBlog.text}</p>
+            <p>Autho: {foundBlog.author}</p>
+            <p>CreatedAt: {foundBlog.createdAt}</p>
         </ul>
     )
 }
