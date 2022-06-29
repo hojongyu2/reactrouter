@@ -2,18 +2,21 @@ import blogPosts from "../utils/sampleBlogs"
 import { useParams } from "react-router-dom";
 
 const BlogPost = () => {
+   
     let params = useParams();
     console.log(params)
+    //params are URL that goes after ':' in this case
     const blogPost = blogPosts.find((blog)=> {
         return blog.id === parseInt(params.blogId)
+        // s
     })
     return(
         <ul>
-            <li>createdAt: {blogPost.createdAt}</li>
-            <li>title: {blogPost.title}</li>
-            <li>text: {blogPost.text}</li>
-            <li>autho: {blogPost.author}</li>
-            <li>id: {blogPost.id}</li>
+            <p>createdAt: {blogPost.createdAt}</p>
+            <p>title: {blogPost.title}</p>
+            <p>text: {blogPost.text}</p>
+            <p>autho: {blogPost.author}</p>
+            <p>id: {blogPost.id}</p>
         </ul>
     )
 }

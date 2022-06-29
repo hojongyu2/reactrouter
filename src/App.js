@@ -4,6 +4,7 @@ import { Routes, Route} from "react-router-dom"
 import Home from './pages/Home';
 import Blogs from './pages/Blogs';
 import BlogPost from './components/BlogPost';
+import AllBlogs from './components/AllBlogs';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/blogs' element={<Blogs/>}>
             <Route path=':blogId' element={<BlogPost/>} />
+            
+            <Route path='all' element={<AllBlogs/>} />
           </Route>
 
         </Routes>
