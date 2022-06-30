@@ -5,21 +5,22 @@ import Home from './pages/Home';
 import Blogs from './pages/Blogs';
 import BlogPost from './components/BlogPost';
 import AllBlogs from './components/AllBlogs';
+import SubmitBlog from './pages/SubmitBlog';
 
 function App() {
-  
+
   return (
+    
     <div className="App">
       <header className="App-header">
         <h1>Welcome to React Router!</h1>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/blogs' element={<Blogs/>}>
+            <Route index element={<AllBlogs/>} />
             <Route path='single-blog/:blogId' element={<BlogPost/>} />
-            <Route path='all' element={<AllBlogs/>} />
-            {/* http://localhost:3000/blogs/single-blog/1 */}
+            <Route path='submit-blog' element={<SubmitBlog/>} />
           </Route>
-
         </Routes>
       </header>
     </div>

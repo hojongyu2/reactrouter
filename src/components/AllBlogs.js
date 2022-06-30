@@ -6,7 +6,7 @@ const AllBlogs = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const sortOrder = searchParams.get("sortOrder") || "asc" // set default value as "asc"
     const sortField = searchParams.get("sortField") || "createdAt"
-    const limit =Number(searchParams.get("limit"))|| 0
+    const limit =Number(searchParams.get("limit"))|| 10
     const page =Number(searchParams.get("page"))|| 0
     console.log(limit)
     console.log(page)
@@ -34,11 +34,12 @@ const AllBlogs = () => {
         }
         return 0
     }
-    const blogPost = blogPosts.sort(compare).slice(page * limit, (page * limit) + limit)
+    const sortedBlogs = blogPosts.sort(compare).slice(page * limit, (page * limit) + limit)
+    console.log(sortedBlogs)
     return (
         <>
             <h1>All Blogs</h1>
-            {blogPost.map((post, index)=>{
+            {sortedBlogs.map((post, index)=>{
              return <ul key={index}>
                  <p>Id : {post.id}</p>
                  <p>CreatedAt : {post.createdAt}</p>
